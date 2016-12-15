@@ -473,13 +473,13 @@ func (yt *YouTube) openChannel(initial bool) *http.Response {
 		} else {
 			// connection after a 400 Unknown SID error
 			bindUrl = fmt.Sprintf("https://www.youtube.com/api/lounge/bc/bind?device=LOUNGE_SCREEN&id=%s&name=%s&loungeIdToken=%s&OSID=%s&OAID=%d&VER=8&RID=%d&zx=%s",
+				yt.uuid, url.QueryEscape(yt.systemName), yt.loungeToken, yt.sid, aid, yt.rid.Next(), zx())
 				logger.Println("after a 400 connection");
 				logger.Println(yt.systemName);
 				logger.Println(yt.rid.Next());
 				logger.Println(zx());
 				logger.Println(yt.sid);
 				logger.Println(aid);
-				yt.uuid, url.QueryEscape(yt.systemName), yt.loungeToken, yt.sid, aid, yt.rid.Next(), zx())
 		}
 
 		timeBeforeGet := time.Now()
