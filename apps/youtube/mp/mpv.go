@@ -22,6 +22,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+	"log"
+	"net/http"
 	"github.com/googollee/go-socket.io"
 	"github.com/gvsro/plaincast/config"
 	"github.com/gvsro/plaincast/log"
@@ -45,7 +47,7 @@ func (mpv *MPV) initialize() (chan State, int) {
 	if mpv.handle != nil || mpv.running {
 		panic("already initialized")
 	}
-	
+
 	server, err := socketio.NewServer(nil)
 	if err != nil {
 			log.Fatal(err)
