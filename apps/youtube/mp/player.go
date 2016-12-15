@@ -6,7 +6,7 @@ import (
   "net/http"
 	"github.com/googollee/go-socket.io"
 )
-func main() {
+
     server, err := socketio.NewServer(nil)
     if err != nil {
         log.Fatal(err)
@@ -30,7 +30,7 @@ func main() {
     http.Handle("/", http.FileServer(http.Dir("./asset")))
     logger.Println("Serving at localhost:5000...")
     logger.Println(http.ListenAndServe(":5000", nil))
-}
+
 // A generic YouTube media player using a playlist.
 type MediaPlayer struct {
 	player      Backend
@@ -44,7 +44,6 @@ type MediaPlayer struct {
 }
 
 func New(stateChange chan StateChange) *MediaPlayer {
-	main()
 	p := MediaPlayer{}
 	p.stateChange = stateChange
 	p.playstateChan = make(chan PlayState)
