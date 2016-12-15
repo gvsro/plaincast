@@ -13,8 +13,8 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/aykevl/plaincast/apps"
-	"github.com/aykevl/plaincast/apps/youtube"
+	"github.com/gvsro/plaincast/apps"
+	"github.com/gvsro/plaincast/apps/youtube"
 )
 
 // This implements a UPnP/DIAL server.
@@ -32,7 +32,7 @@ const DEVICE_DESCRIPTION = `<?xml version="1.0"?>
 	</specVersion>
 	<device>
 		<deviceType>urn:schemas-upnp-org:device:dial:1</deviceType>
-		<friendlyName>{{.FriendlyName}}</friendlyName>
+		<friendlyName>Mirror</friendlyName>
 		<manufacturer>-</manufacturer>
 		<modelDescription>Play the audio of YouTube videos</modelDescription>
 		<modelName>{{.ModelName}}</modelName>
