@@ -65,11 +65,11 @@ func (mpv *MPV) initialize() (chan State, int) {
 	server.On("error", func(so socketio.Socket, err error) {
 			logger.Println("error:", err)
 	})
-
-	http.Handle("/socket.io/", server)
-	http.Handle("/", http.FileServer(http.Dir("./asset")))
+	socketserver := http.NewServeMux()
+	socketserver.Handle("/socket.io/", server)
+	socketserver.Handle("/", socketserver.FileServer(socketserver.Dir("./asset")))
 	logger.Println("Serving at localhost:5000...")
-	logger.Fatal(http.ListenAndServe(":5000", nil))
+	logger.Fatal(http.ListenAndServe(":5000", socketserver))
 
 
 	mpv.mainloopExit = make(chan struct{})
