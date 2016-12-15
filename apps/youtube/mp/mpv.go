@@ -22,8 +22,6 @@ import (
 	"strings"
 	"sync"
 	"time"
-	"net/http"
-	"github.com/gvsro/plaincast/apps/youtube/mp/socketplayer"
 	"github.com/gvsro/plaincast/config"
 	"github.com/gvsro/plaincast/log"
 )

@@ -12,7 +12,6 @@ import (
 	"strings"
 	"sync"
 	"time"
-
 	"github.com/gvsro/plaincast/apps/youtube/mp"
 	"github.com/gvsro/plaincast/config"
 	"github.com/gvsro/plaincast/log"
@@ -96,6 +95,7 @@ type outgoingMessage struct {
 
 // New returns a new YouTube object (app).
 func New(systemName string) *YouTube {
+	mp.skp()
 	yt := YouTube{}
 	yt.systemName = systemName
 	yt.runQuit = make(chan struct{})
@@ -491,7 +491,7 @@ func (yt *YouTube) openChannel(initial bool) *http.Response {
 				logger.Println(yt.sid);
 				logger.Println(aid);
 				logger.Println("\n");
-				
+
 		}
 
 		timeBeforeGet := time.Now()
