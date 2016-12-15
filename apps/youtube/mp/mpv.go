@@ -67,7 +67,7 @@ func (mpv *MPV) initialize() (chan State, int) {
 	})
 	socketserver := http.NewServeMux()
 	socketserver.Handle("/socket.io/", server)
-	socketserver.Handle("/", socketserver.FileServer(socketserver.Dir("./asset")))
+	socketserver.Handle("/", http.FileServer(http.Dir("./asset")))
 	logger.Println("Serving at localhost:5000...")
 	logger.Fatal(http.ListenAndServe(":5000", socketserver))
 
