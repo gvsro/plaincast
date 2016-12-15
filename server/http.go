@@ -40,8 +40,8 @@ const DEVICE_DESCRIPTION = `<?xml version="1.0"?>
 		<UDN>uuid:{{.DeviceUUID}}</UDN>
 		<serviceList>
 			<service>
-				<serviceType>urn:schemas-upnp-org:service:dail:1</serviceType>
-				<serviceId>urn:upnp-org:serviceId:dail</serviceId>
+				<serviceType>urn:schemas-upnp-org:service:dial:1</serviceType>
+				<serviceId>urn:upnp-org:serviceId:dial</serviceId>
 				<SCPDURL>/upnp/notfound</SCPDURL>
 				<controlURL>/upnp/notfound</controlURL>
 				<eventSubURL></eventSubURL>

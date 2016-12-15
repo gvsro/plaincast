@@ -231,6 +231,7 @@ func (mpv *MPV) play(stream string, position time.Duration, volume int) {
 		logger.Panic("Stream does not start with https://...")
 	}
 	mpv.sendCommand([]string{"loadfile", "http://localhost:8008/proxy/" + stream[len("https://"):], "replace", options})
+	mpv.sendCommand([]string{"loadfile", "http://localhost:9876/proxy/" + stream[len("https://"):], "replace", options})
 }
 
 func (mpv *MPV) pause() {
