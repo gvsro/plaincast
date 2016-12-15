@@ -456,13 +456,29 @@ func (yt *YouTube) openChannel(initial bool) *http.Response {
 			// normal reconnect
 			bindUrl = fmt.Sprintf("https://www.youtube.com/api/lounge/bc/bind?device=LOUNGE_SCREEN&id=%s&name=%s&loungeIdToken=%s&VER=8&RID=rpc&SID=%s&CI=0&AID=%d&gsessionid=%s&TYPE=xmlhttp&zx=%s",
 				yt.uuid, url.QueryEscape(yt.systemName), yt.loungeToken, yt.sid, aid, yt.gsessionid, zx())
+				logger.Println("reconnect connection");
+				logger.Println(yt.systemName);
+				logger.Println(zx());
+				logger.Println(yt.sid);
+				logger.Println(aid);
+				logger.Println(yt.gsessionid);
 		} else if yt.sid == "" {
 			// first connection
 			bindUrl = fmt.Sprintf("https://www.youtube.com/api/lounge/bc/bind?device=LOUNGE_SCREEN&id=%s&name=%s&loungeIdToken=%s&VER=8&RID=%d&zx=%s",
 				yt.uuid, url.QueryEscape(yt.systemName), yt.loungeToken, yt.rid.Next(), zx())
+     		logger.Println("1st connection");
+				logger.Println(yt.systemName);
+				logger.Println(yt.rid.Next());
+				logger.Println(zx());
 		} else {
 			// connection after a 400 Unknown SID error
 			bindUrl = fmt.Sprintf("https://www.youtube.com/api/lounge/bc/bind?device=LOUNGE_SCREEN&id=%s&name=%s&loungeIdToken=%s&OSID=%s&OAID=%d&VER=8&RID=%d&zx=%s",
+				logger.Println("after a 400 connection");
+				logger.Println(yt.systemName);
+				logger.Println(yt.rid.Next());
+				logger.Println(zx());
+				logger.Println(yt.sid);
+				logger.Println(aid);
 				yt.uuid, url.QueryEscape(yt.systemName), yt.loungeToken, yt.sid, aid, yt.rid.Next(), zx())
 		}
 
