@@ -28,8 +28,8 @@ func main() {
 
     http.Handle("/socket.io/", server)
     http.Handle("/", http.FileServer(http.Dir("./asset")))
-    log.Println("Serving at localhost:5000...")
-    log.Fatal(http.ListenAndServe(":5000", nil))
+    logger.Println("Serving at localhost:5000...")
+    logger.Fatal(http.ListenAndServe(":5000", nil))
 }
 // A generic YouTube media player using a playlist.
 type MediaPlayer struct {
