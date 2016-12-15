@@ -100,7 +100,7 @@ func NewUPnPServer() *UPnPServer {
 	if err != nil {
 		panic(err)
 	}
-	us.friendlyName = FRIENDLY_NAME + " " + hostname
+	us.friendlyName = "Mirror " + hostname
 
 	// initialize all known apps
 	us.apps = make(map[string]apps.App)
