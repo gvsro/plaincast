@@ -23,7 +23,7 @@ import (
 	"sync"
 	"time"
 	"net/http"
-	"github.com/googollee/go-socket.io"
+	"github.com/gvsro/plaincast/apps/youtube/mp/socketplayer"
 	"github.com/gvsro/plaincast/config"
 	"github.com/gvsro/plaincast/log"
 )
@@ -46,31 +46,6 @@ func (mpv *MPV) initialize() (chan State, int) {
 	if mpv.handle != nil || mpv.running {
 		panic("already initialized")
 	}
-
-	server, err := socketio.NewServer(nil)
-	if err != nil {
-			logger.Fatal(err)
-	}
-	server.On("connection", func(so socketio.Socket) {
-			logger.Println("on connection")
-			so.Join("chat")
-			so.On("chat message", func(msg string) {
-					logger.Println("emit:", so.Emit("chat message", msg))
-					so.BroadcastTo("chat", "chat message", msg)
-			})
-			so.On("disconnection", func() {
-					logger.Println("on disconnect")
-			})
-	})
-	server.On("error", func(so socketio.Socket, err error) {
-			logger.Println("error:", err)
-	})
-	socketserver := http.NewServeMux()
-	socketserver.Handle("/socket.io/", server)
-	socketserver.Handle("/", http.FileServer(http.Dir("./asset")))
-	logger.Println("Serving at localhost:5000...")
-	logger.Fatal(http.ListenAndServe(":5000", socketserver))
-
 
 	mpv.mainloopExit = make(chan struct{})
 	mpv.running = true
