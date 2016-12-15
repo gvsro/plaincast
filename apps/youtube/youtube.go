@@ -13,7 +13,7 @@ import (
 	"sync"
 	"time"
 	"github.com/gvsro/plaincast/apps/youtube/mp"
-	"github.com/gvsro/plaincast/apps/youtube/mp/skp"
+	"github.com/gvsro/plaincast/apps/youtube/mp/socketplayer.go"
 	"github.com/gvsro/plaincast/config"
 	"github.com/gvsro/plaincast/log"
 	"github.com/nu7hatch/gouuid"
