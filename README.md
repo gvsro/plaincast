@@ -46,10 +46,6 @@ Afterwards, you can update youtube-dl using:
 
 It is advisable to run this regularly as it has to keep up with YouTube updates. Certainly first try updating youtube-dl when plaincast stops working.
 
-## Known issues
-
- *  So far, only DIAL is implemented, so the Chrome extension for Chromecast doesn't work yet (I suspect it uses mDNS, which is the successor of DIAL on Chromecast).
-
 ## Thanks
 
 I would like to thank the creators of [leapcast](https://github.com/dz0ny/leapcast). Leapcast is a Chromecast emulator, which was essential in the process of reverse-engineering the YouTube protocol and better understanding the DIAL protocol.
