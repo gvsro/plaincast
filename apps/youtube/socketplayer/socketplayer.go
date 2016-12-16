@@ -2,14 +2,14 @@ package socketplayer
 
 import (
   "net/http"
-	"github.com/googollee/go-socket.io"
+  "github.com/googollee/go-socket.io"
   "fmt"
 )
 
 func main() {
     server, err := socketio.NewServer(nil)
     if err != nil {
-        fmt.Fatal(err)
+        fmt.Println("[Fatal]",err)
     }
     server.On("connection", func(so socketio.Socket) {
         so.Join("player")
