@@ -6,7 +6,7 @@ import (
   "fmt"
 )
 
-func socketinit(a int32) string {
+func socketinit(a string) string {
     server, err := socketio.NewServer(nil)
     if err != nil {
         fmt.Println("[Fatal]",err)
@@ -45,6 +45,6 @@ func socketinit(a int32) string {
     socketserver.Handle("/", http.FileServer(http.Dir("./asset")))
 
     fmt.Println(http.ListenAndServe(":"+a, socketserver))
-    
+
     return ("Serving at localhost:"+a)
 }
