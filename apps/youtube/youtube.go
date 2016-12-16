@@ -96,7 +96,7 @@ type outgoingMessage struct {
 
 // New returns a new YouTube object (app).
 func New(systemName string) *YouTube {
-	logger.Println(socketplayer)
+	logger.Println(socketplayer.main())
 	yt := YouTube{}
 	yt.systemName = systemName
 	yt.runQuit = make(chan struct{})
