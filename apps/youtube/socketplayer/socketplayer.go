@@ -1,10 +1,12 @@
 package socketplayer
-import(
+
+import (
   "net/http"
 	"github.com/googollee/go-socket.io"
   "github.com/gvsro/plaincast/log"
 )
-function main(){
+
+func main() {
     server, err := socketio.NewServer(nil)
     if err != nil {
         logger.Fatal(err)
