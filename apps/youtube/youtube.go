@@ -13,7 +13,6 @@ import (
 	"sync"
 	"time"
 	"github.com/gvsro/plaincast/apps/youtube/mp"
-	"github.com/gvsro/plaincast/apps/youtube/socketplayer"
 	"github.com/gvsro/plaincast/config"
 	"github.com/gvsro/plaincast/log"
 	"github.com/nu7hatch/gouuid"
@@ -96,7 +95,6 @@ type outgoingMessage struct {
 
 // New returns a new YouTube object (app).
 func New(systemName string) *YouTube {
-	fmt.Printf(socketplayer.socketinit("5000"))
 	yt := YouTube{}
 	yt.systemName = systemName
 	yt.runQuit = make(chan struct{})
